@@ -6,11 +6,11 @@ from django.conf.urls.static import static
 from . import views
 
 router = routers.DefaultRouter()
+router.register('locations', views.LocationViewSet, basename='locations')
+router.register('flights', views.FlightViewSet, basename='flights')
 router.register('tickets', views.TicketViewSet, basename='tickets')
 router.register('passengers', views.PassengerViewSet, basename='passengers')
-router.register('locations', views.LocationViewSet, basename='locations')
 router.register('Booking', views.BookingViewSet, basename='booking')
-router.register('flights', views.FlightViewSet, basename='flights')
 router.register('flight-search', views.FlightsSearchViewSet, basename='flight-search')
 
 urlpatterns = router.urls

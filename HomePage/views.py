@@ -22,6 +22,10 @@ class PassengerViewSet(viewsets.ModelViewSet):
     serializer_class = PassengerSerializer
     permission_classes = [IsAuthenticated]
 
+    def list(self, request, *args, **kwargs):
+        passengers = Passenger.objects.all()
+        return render(request, 'passenger.html', {'passengers': passengers})
+
     @action(detail=True, methods=['GET'])
     def tickets(self):
         passenger = self.get_object()
@@ -66,3 +70,18 @@ class FlightsSearchViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = TimetableFilter
 
+
+class SendEmailsViewSet(APIView):
+    def post(self, request, *args, **kwargs):
+        try:
+            send_mail(
+                subject='Subject',
+                message='I will find you and I will kill you.',
+                from_email='islambadran39@gmail.com',
+                recipient_list=['no5510425@gmail.com'])
+            return Response({'message': 'Email sent successfully.'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'message': 'Internal server error.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def options(self, request, *args, **kwargs):
+        return Response(status=status.HTTP_200_OK)
