@@ -8,6 +8,7 @@ class TimetableFilter(django_filters.FilterSet):
     departure_date = django_filters.DateTimeFilter(field_name='departure_date')
     return_date = django_filters.DateTimeFilter(field_name='return_date')
 
+
     class Meta:
         model = Timetable
         fields = ['from_airport', 'to_airport', 'departure_date', 'return_date']
