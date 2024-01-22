@@ -1,8 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.generics import RetrieveAPIView
-from .models import Passenger, Location, Flight, Ticket, Booking, Timetable
-from .serializers import PassengerSerializer, LocationSerializer, FlightSerializer, TimetableSerializer, \
-    TicketSerializer, BookingSerializer
+from .models import Passenger, Location, Flight, Ticket, Timetable
+from .serializers import PassengerSerializer, LocationSerializer, FlightSerializer, TimetableSerializer, TicketSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .permissions import IsAdminOrReadOnly
 from rest_framework.decorators import action
@@ -15,6 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
+from . import models
 
 
 class PassengerViewSet(viewsets.ModelViewSet):
@@ -51,17 +51,10 @@ class TicketViewSet(viewsets.ModelViewSet):
     serializer_class = TicketSerializer
     permission_classes = [IsAdminUser]
 
-
-class BookingViewSet(viewsets.ModelViewSet):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated]
-
-    def tickets(self, request, *args, **kwargs):
-        booking = self.get_object()
-        if booking.ticket_set.count() >= 5:
-            raise ValidationError("A user can only book up to 5 tickets in a booking.")
-        return super().list(request, *args, **kwargs)
+    def seats(self):
+        seats = models.Flight.seats
+        if seats.count() < 0:
+            return "No seats available"
 
 
 class FlightsSearchViewSet(viewsets.ModelViewSet):

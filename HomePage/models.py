@@ -42,10 +42,8 @@ class Ticket(models.Model):
         ('business', 'Business'),
         ('vip', 'VIP'),
     ]
-
     passenger = models.OneToOneField(Passenger, on_delete=models.CASCADE, related_name='passenger_tickets', null=True)
     flight = models.ForeignKey('Flight', on_delete=models.CASCADE)
-    booking = models.ForeignKey('Booking', on_delete=models.CASCADE, related_name='booking_tickets', null=True)
     takeoff_date = models.DateTimeField(auto_now_add=True)
     ticket_price = models.DecimalField(max_digits=5, decimal_places=2)
     ticket_class = models.CharField(choices=CLASSES, max_length=15)
@@ -58,7 +56,7 @@ class Ticket(models.Model):
 class Flight(models.Model):
     passengers = models.ManyToManyField('Passenger', related_name='flights')
     tickets = models.ManyToManyField('Ticket', related_name='flights')
-    location = models.OneToOneField(Location, on_delete=models.CASCADE)
+    location = models.ManyToManyField(Location)
     date = models.DateTimeField(auto_now_add=True)
     flight_num = models.CharField(max_length=10)
     departure_time = models.DateTimeField(auto_now=False, auto_now_add=False)
@@ -68,28 +66,6 @@ class Flight(models.Model):
 
     def __str__(self):
         return f'{self.location} {self.date}'
-
-
-class Booking(models.Model):
-    Done = 'D'
-    Pend = 'P'
-    Refused = 'R'
-
-    State_CHOICES = [
-        (Done, 'Done'),
-        (Pend, 'Pend'),
-        (Refused, 'Refused'),
-    ]
-
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    Booking_number = models.IntegerField()
-    flights = models.ManyToManyField('Flight', related_name='bookings')
-    tickets = models.ManyToManyField(Ticket, related_name='booking_tickets')
-    Booking_date = models.DateTimeField(auto_now_add=True)
-    Booking_state = models.CharField(choices=State_CHOICES, max_length=15)
-
-    def __str__(self):
-        return f"{self.Booking_date}"
 
 
 class Timetable(models.Model):
