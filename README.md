@@ -1,4 +1,12 @@
-<div align="center">
-  <img src="https://readme-typing-svg.demolab.com/?lines=AirTravels-Booking-System+%F0%9F%8F%AA" alt="Typing SVG" style="margin-left: 10px;">
-  <p><strong>「 Book your ticket | Book your Hotel room | search about flights 」</strong></p>
-</div>
+# AirTravels Booking System 🏪
+
+![Typing SVG](https://readme-typing-svg.demolab.com/?lines=AirTravels-Booking-System+%F0%9F%8F%AA)
+
+**「 Book your ticket | Book your Hotel room | search about flights 」**
+
+It's an API for booking tickets in AirTravels with a full Authentication System:
+
+- Profile for each passenger.
+- Ticket for each seat in flight.
+- Search engine about existing flights.
+- Add locations to make flights for them.
