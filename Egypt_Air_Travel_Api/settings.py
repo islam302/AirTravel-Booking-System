@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'HomePage',
-    'core',
+    'Authentication_System',
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
@@ -164,4 +164,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'core.UserModel'
+AUTH_USER_MODEL = 'Authentication_System.UserModel'
