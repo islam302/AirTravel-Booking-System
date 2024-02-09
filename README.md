@@ -6,6 +6,7 @@
 
 It's an API for booking tickets in AirTravels with a full Authentication System:
 
+- full system authentication.
 - Profile for each passenger.
 - Ticket for each seat in flight.
 - Search engine about existing flights.
