@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>AirTravels Booking System 🏪</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirTravels Booking System</title>
-</head>
+<img src="https://readme-typing-svg.demolab.com/?lines=AirTravels-Booking-System+%F0%9F%8F%AA" alt="Typing SVG">
+
+<h3>「 Book your ticket | Book your Hotel room | search about flights 」</h3>
+
+<p>It's an API for booking tickets in AirTravels with a full Authentication System:</p>
 
 <body>
-    <h1 style="color: #2E86C1;">Welcome to the AirTravels Booking System 🏪</h1>
-
-<p style="font-style: italic;">"Your One-Stop Solution for Booking Flights and Hotels!"</p>
-
-<p>This API provides a comprehensive solution for booking tickets with AirTravels, offering a seamless experience
-    with a full Authentication System:</p>
-
+    <h1 style="color: #2E86C1;">Features</h1>
 <ul>
-    <li><strong>Full System Authentication:</strong> Ensures the security of user accounts and data.</li>
-    <li><strong>User Profiles:</strong> Allows each passenger to have a personalized profile.</li>
-    <li><strong>Seat-based Ticketing:</strong> Provides tickets for each seat on the flight for precise booking.</li>
-    <li><strong>Flight Search Engine:</strong> Enables users to search for existing flights easily.</li>
-    <li><strong>Location Management:</strong> Allows the addition of new locations for flight scheduling.</li>
+    <li><strong>Full System Authentication:</strong> Ensures the security of your booking information.</li>
+    <li><strong>Passenger Profiles:</strong> Maintain a profile for each passenger, making future bookings quick and easy.</li>
+    <li><strong>Seat Tickets:</strong> Reserve a seat on your flight to ensure a comfortable journey.</li>
+    <li><strong>Flight Search Engine:</strong> Find the best flights based on your preferences and travel dates.</li>
+    <li><strong>Location Management:</strong> Add new locations for flights to expand the travel options.</li>
 </ul>
 
-<p style="color: #E74C3C;">Get ready to experience a new level of convenience and efficiency in air travel booking!</p>
+<h1 style="color: #2E86C1;">Usage</h1>
 
-<p style="font-weight: bold;">Start booking your journey with AirTravels today!</p>
+<p>To use the AirTravels Booking System API, simply follow these steps:</p>
 
-<p>For detailed documentation and usage instructions, please refer to the [Documentation](#) section.</p>
-
-<p style="color: #3498DB;">Let's make your travel dreams take flight! ✈️</p>
+<ol>
+    <li><strong>Authentication:</strong> Authenticate with the system to access booking functionalities.</li>
+    <li><strong>Search Flights:</strong> Use the search engine to find available flights.</li>
+    <li><strong>Book Ticket:</strong> Select your flight and book your ticket.</li>
+    <li><strong>Manage Profile:</strong> Update your passenger profile for future bookings.</li>
+    <li><strong>Manage Locations:</strong> Add new locations or modify existing ones for flight availability.</li>
+</ol>
 </body>
-
-</html>
