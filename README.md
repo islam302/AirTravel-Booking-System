@@ -1,10 +1,8 @@
-<h1>AirTravels Booking System 🏪</h1>
+<h1>AirTravels Booking System 🛫</h1>
 
 <img src="https://readme-typing-svg.demolab.com/?lines=AirTravels-Booking-System+%F0%9F%8F%AA" alt="Typing SVG">
 
 <h3>「 Book your ticket | Book your Hotel room | search about flights 」</h3>
-
-<p>It's an API for booking tickets in AirTravels with a full Authentication System:</p>
 
 <body>
     <h1 style="color: #2E86C1;">Features</h1>
