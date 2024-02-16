@@ -1,49 +1,36 @@
-AirTravels Booking System 🏪
-Typing SVG
+<!DOCTYPE html>
+<html lang="en">
 
-Welcome to AirTravels Booking System! 🛫
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirTravels Booking System</title>
+</head>
 
-This API provides a comprehensive booking experience for AirTravels, offering a range of features to make your travel planning smooth and convenient:
+<body>
+    <h1 style="color: #2E86C1;">Welcome to the AirTravels Booking System 🏪</h1>
 
-Book Your Ticket: Easily book your flight tickets with just a few clicks.
-Book Your Hotel Room: Find and book the perfect hotel room for your stay.
-Search About Flights: Use our powerful search engine to discover available flights and plan your journey.
-Features
-Full System Authentication: Ensures the security of your booking information.
-Passenger Profiles: Maintain a profile for each passenger, making future bookings quick and easy.
-Seat Tickets: Reserve a seat on your flight to ensure a comfortable journey.
-Flight Search Engine: Find the best flights based on your preferences and travel dates.
-Location Management: Add new locations for flights to expand the travel options.
-Usage
-To use the AirTravels Booking System API, simply follow these steps:
+    <p style="font-style: italic;">"Your One-Stop Solution for Booking Flights and Hotels!"</p>
 
-Authentication: Authenticate with the system to access booking functionalities.
-Search Flights: Use the search engine to find available flights.
-Book Ticket: Select your flight and book your ticket.
-Manage Profile: Update your passenger profile for future bookings.
-Manage Locations: Add new locations or modify existing ones for flight availability.
-Example
-python
-Copy code
-from airtravels import AirTravelsAPI
+    <p>This API provides a comprehensive solution for booking tickets with AirTravels, offering a seamless experience
+        with a full Authentication System:</p>
 
-api = AirTravelsAPI()
+    <ul>
+        <li><strong>Full System Authentication:</strong> Ensures the security of user accounts and data.</li>
+        <li><strong>User Profiles:</strong> Allows each passenger to have a personalized profile.</li>
+        <li><strong>Seat-based Ticketing:</strong> Provides tickets for each seat on the flight for precise booking.</li>
+        <li><strong>Flight Search Engine:</strong> Enables users to search for existing flights easily.</li>
+        <li><strong>Location Management:</strong> Allows the addition of new locations for flight scheduling.</li>
+    </ul>
 
-# Authenticate user
-api.authenticate(username, password)
+    <p style="color: #E74C3C;">Get ready to experience a new level of convenience and efficiency in air travel booking!</p>
 
-# Search for flights
-flights = api.search_flights(origin, destination, date)
+    <p style="font-weight: bold;">Start booking your journey with AirTravels today!</p>
 
-# Book a ticket
-ticket = api.book_ticket(flight_id, seat_number)
+    <p>For detailed documentation and usage instructions, please refer to the [Documentation](#) section.</p>
 
-# Manage passenger profile
-api.update_profile(name, email, phone)
+    <p style="color: #3498DB;">Let's make your travel dreams take flight! ✈️</p>
+</body>
 
-# Add new location
-api.add_location(city, country)
-Author
-This project was created and is maintained by Your Name. Feel free to reach out with any questions or feedback!
-
-Let's make your travel dreams a reality with AirTravels Booking System! 🌟
+</html>
