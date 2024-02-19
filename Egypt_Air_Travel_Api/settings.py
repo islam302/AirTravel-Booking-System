@@ -161,6 +161,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'Authentication_System.UserModel'
 
+<<<<<<< HEAD
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
@@ -173,3 +174,6 @@ CACHES = {
 CACHEOPS = {
     'HomePage.passenger': {'ops': 'all', 'timeout': 60*15},
 }
+=======
+AUTH_USER_MODEL = 'Authentication_System.UserModel'
+>>>>>>> 7cedb141306cb97fa5a6980d3cbb5b1e4ff3a2cd
