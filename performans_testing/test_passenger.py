@@ -1,25 +1,20 @@
 from locust import HttpUser, task, between
 from random import randint
 
+
 class TestPassenger(HttpUser):
     wait_time = between(1, 5)
 
-    @task(2)
-    def view_passenger_list(self):
-        print('view passenger list')
-        self.client.get('Home/passengers/',
-                        name='Home/passengers')
+    @task
+    def get_passenger_tickets(self):
+        try:
+            response = self.client.get('/Home/passengers/3/tickets/')
+            if response.status_code != 200:
+                print(f'Request failed with status code {response.status_code}')
+        except Exception as e:
+            print(f'An error occurred: {e}')
 
-    @task(4)
-    def view_passenger_detail(self):
-        print('view passenger detail')
-        self.client.get('Home/passengers/1/',
-                        name='Home/passengers/:id')
 
-    @task(6)
-    def create_passenger(self):
-        print('create passenger')
-        passenger_id = randint(2, 20)
-        self.client.post('Home/passengers/',
-                         name='Home/passengers/',
-                         json={'passenger_id': passenger_id, 'quantity': 1})
+
+
+

@@ -15,46 +15,49 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from . import models
+from cacheops import cached_as
+import requests
 
 
+@cached_as(models.Passenger)
 class PassengerViewSet(viewsets.ModelViewSet):
     queryset = Passenger.objects.all()
     serializer_class = PassengerSerializer
     permission_classes = [IsAuthenticated]
 
-    def list(self, request, *args, **kwargs):
-        passengers = Passenger.objects.all()
-        return render(request, 'passenger.html', {'passengers': passengers})
-
     @action(detail=True, methods=['GET'])
-    def tickets(self):
+    def tickets(self, request, pk=None):
         passenger = self.get_object()
         tickets = Ticket.objects.filter(passenger=passenger)
         serializer = TicketSerializer(tickets, many=True)
         return Response(serializer.data)
+    pass
 
-
+@cached_as(models.Location)
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
     permission_classes = [IsAdminUser]
 
-
+@cached_as(models.Flight)
 class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     permission_classes = [IsAdminOrReadOnly]
 
-
+@cached_as(models.Ticket)
 class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     permission_classes = [IsAdminUser]
 
-    def seats(self):
-        seats = models.Flight.seats
-        if seats.count() < 0:
-            return "No seats available"
+    @action(detail=False, methods=['GET'])
+    def seats(self, request):
+        flights = Flight.objects.all()
+        seats_available = {}
+        for flight in flights:
+            seats_available[flight.id] = flight.seats.count() > 0
+        return Response(seats_available)
 
 
 class FlightsSearchViewSet(viewsets.ModelViewSet):
@@ -63,18 +66,7 @@ class FlightsSearchViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = TimetableFilter
 
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
-class SendEmailsViewSet(APIView):
-    def post(self, request, *args, **kwargs):
-        try:
-            send_mail(
-                subject='Subject',
-                message='I will find you and I will kill you.',
-                from_email='islambadran39@gmail.com',
-                recipient_list=['no5510425@gmail.com'])
-            return Response({'message': 'Email sent successfully.'}, status=status.HTTP_200_OK)
-        except Exception as e:
-            return Response({'message': 'Internal server error.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    def options(self, request, *args, **kwargs):
-        return Response(status=status.HTTP_200_OK)
