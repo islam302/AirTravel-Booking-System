@@ -26,5 +26,4 @@ urlpatterns = [
     path('Home/', include('HomePage.urls')),
     path('auth/', include('Authentication_System.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
-
 ]

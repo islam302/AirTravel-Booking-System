@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from datetime import timedelta
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -60,6 +61,19 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Egypt_Air_Travel_Api.urls'
 
+WSGI_APPLICATION = 'Egypt_Air_Travel_Api.wsgi.application'
+
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -76,17 +90,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Egypt_Air_Travel_Api.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -166,4 +169,7 @@ CACHES = {
         }
     }
 }
+
+
+AUTH_USER_MODEL = 'Authentication_System.UserModel'
 
