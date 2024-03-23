@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-#z851ou5snuju1#elly&b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'home-care-services.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'airtravel-booking-system.onrender.com']
 
 # Application definition
 
