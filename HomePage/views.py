@@ -6,7 +6,6 @@ from .serializers import PassengerSerializer, LocationSerializer, FlightSerializ
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .permissions import IsAdminOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
-from cacheops import cached_as
 from .filters import TimetableFilter
 
 class PassengerViewSet(viewsets.ModelViewSet):
