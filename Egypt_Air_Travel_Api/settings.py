@@ -68,8 +68,12 @@ WSGI_APPLICATION = 'Egypt_Air_Travel_Api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Egypt_Air_Travel',
+        'USER': 'postgres',
+        'PASSWORD': 'civil hacker',
+        'HOST': 'localhost',
+        'PORT': '7070',
     }
 }
 
