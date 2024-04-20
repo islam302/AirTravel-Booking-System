@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import settings
 
 
+
 class AirLine(models.Model):
     code = models.CharField(max_length=3, unique=True)
 
