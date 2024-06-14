@@ -1,19 +1,8 @@
 from decimal import Decimal
-from .models import Passenger, Location, Flight, Ticket, Timetable, StudentProgress, StudentGoal
+from .models import Passenger, Location, Flight, Ticket, Timetable
 from rest_framework import serializers
 
 
-
-class StudentProgressSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = StudentProgress
-        fields = '__all__'
-
-
-class StudentGoalSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = StudentGoal
-        fields = '__all__'
 
 class FlightSerializer(serializers.ModelSerializer):
     passengers = serializers.PrimaryKeyRelatedField(many=True, queryset=Passenger.objects.all())
