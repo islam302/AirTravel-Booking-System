@@ -3,6 +3,7 @@ from .models import Passenger, Location, Flight, Ticket, Timetable
 from rest_framework import serializers
 
 
+
 class FlightSerializer(serializers.ModelSerializer):
     passengers = serializers.PrimaryKeyRelatedField(many=True, queryset=Passenger.objects.all())
     tickets = serializers.PrimaryKeyRelatedField(many=True, queryset=Ticket.objects.all())
